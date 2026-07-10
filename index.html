@@ -38,7 +38,12 @@
     <!-- ===================== NAVIGATION ===================== -->
     <nav id="navbar">
         <div class="container">
-            <div class="logo">&lt;AS /&gt;</div>
+            <div class="logo">&lt;AH /&gt;</div>
+            <div class="nav-switcher">
+                <button class="nav-switcher-btn active" data-role="fullstack" title="Switch to Full Stack Profile">FS</button>
+                <button class="nav-switcher-btn" data-role="frontend" title="Switch to Frontend Profile">FE</button>
+                <button class="nav-switcher-btn" data-role="backend" title="Switch to Backend Profile">BE</button>
+            </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home" id="nav-home">Home</a></li>
                 <li><a href="#about" id="nav-about">About</a></li>
@@ -71,7 +76,22 @@
                     <span id="typingText"></span>
                 </div>
 
-                <p class="hero-description">
+                <div class="hero-role-toggle-container">
+                    <span class="toggle-label"><i class="fas fa-sliders-h" style="margin-right: 0.4rem; color: var(--cyan);"></i> Customize Profile View:</span>
+                    <div class="hero-role-toggle">
+                        <button class="role-toggle-btn active" data-role="fullstack">
+                            <i class="fas fa-layer-group"></i> Full Stack
+                        </button>
+                        <button class="role-toggle-btn" data-role="frontend">
+                            <i class="fab fa-react"></i> Frontend
+                        </button>
+                        <button class="role-toggle-btn" data-role="backend">
+                            <i class="fas fa-server"></i> Backend
+                        </button>
+                    </div>
+                </div>
+
+                <p class="hero-description" id="hero-desc">
                     I build exceptional digital experiences with modern web technologies.
                     Specializing in full-stack development with React, Next.js &amp; Node.js —
                     creating fast, scalable applications that solve real-world problems.
@@ -108,13 +128,12 @@
                     </div>
                 </div>
                 <div class="about-content">
-                    <h3>Building the Future,<br>One Line of Code at a Time</h3>
-                    <p>
+                    <h3 id="about-heading">Building the Future,<br>One Line of Code at a Time</h3>
+                    <p id="about-desc">
                         I'm a passionate Full Stack Developer with a strong foundation in both
                         front-end and back-end technologies. I focus on delivering high-quality
                         solutions that combine elegant design with robust functionality.
-                    </p>
-                    <p>
+                        <br><br>
                         Currently pursuing my <strong style="color: var(--cyan);">Master's in Computer Applications (MCA)</strong>
                         at Kurukshetra University, I'm constantly learning and adapting to new technologies.
                         My approach blends analytical problem-solving with creative thinking to build
@@ -126,11 +145,11 @@
                             <div class="stat-label">Major Projects</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-number">10+</div>
+                            <div class="stat-number">25+</div>
                             <div class="stat-label">Technologies</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-number">91%</div>
+                            <div class="stat-number">91.2%</div>
                             <div class="stat-label">Academic Score (XII)</div>
                         </div>
                     </div>
@@ -157,12 +176,13 @@
                         Programming Languages
                     </h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag" data-skill="javascript">JavaScript (ES6+)</span>
+                        <span class="skill-tag" data-skill="typescript">TypeScript</span>
+                        <span class="skill-tag" data-skill="java">Java</span>
+                        <span class="skill-tag" data-skill="python">Python</span>
+                        <span class="skill-tag" data-skill="sql">SQL</span>
+                        <span class="skill-tag" data-skill="html5">HTML5</span>
+                        <span class="skill-tag" data-skill="css3">CSS3</span>
                     </div>
                 </div>
 
@@ -172,69 +192,89 @@
                         Frontend Development
                     </h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">React.js</span>
-                        <span class="skill-tag">Next.js</span>
-                        <span class="skill-tag">TailwindCSS</span>
-                        <span class="skill-tag">Responsive Design</span>
-                        <span class="skill-tag">UI/UX</span>
-                        <span class="skill-tag">EJS</span>
+                        <span class="skill-tag" data-skill="react">React.js</span>
+                        <span class="skill-tag" data-skill="next">Next.js</span>
+                        <span class="skill-tag" data-skill="redux">Redux Toolkit</span>
+                        <span class="skill-tag" data-skill="tailwind">Tailwind CSS</span>
+                        <span class="skill-tag" data-skill="bootstrap">Bootstrap</span>
+                        <span class="skill-tag" data-skill="vite">Vite</span>
+                        <span class="skill-tag" data-skill="responsive">Responsive Design</span>
+                        <span class="skill-tag" data-skill="uiux">UI/UX</span>
+                        <span class="skill-tag" data-skill="figma">Figma</span>
+                        <span class="skill-tag" data-skill="cross-browser">Cross-Browser Compatibility</span>
+                        <span class="skill-tag" data-skill="seo">SEO</span>
+                        <span class="skill-tag" data-skill="ejs">EJS</span>
                     </div>
                 </div>
 
                 <div class="skill-category">
                     <h3>
                         <span class="skill-icon"><i class="fas fa-server"></i></span>
-                        Backend Development
+                        Backend &amp; APIs
                     </h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">Express.js</span>
-                        <span class="skill-tag">REST APIs</span>
-                        <span class="skill-tag">JWT Auth</span>
-                        <span class="skill-tag">bcrypt</span>
-                        <span class="skill-tag">Socket.io</span>
+                        <span class="skill-tag" data-skill="node">Node.js</span>
+                        <span class="skill-tag" data-skill="express">Express.js</span>
+                        <span class="skill-tag" data-skill="rest">REST APIs</span>
+                        <span class="skill-tag" data-skill="graphql">GraphQL</span>
+                        <span class="skill-tag" data-skill="socketio">Socket.io</span>
+                        <span class="skill-tag" data-skill="auth">JWT / OAuth 2.0</span>
+                        <span class="skill-tag" data-skill="bcrypt">bcrypt</span>
+                        <span class="skill-tag" data-skill="microservices">Microservices</span>
+                        <span class="skill-tag" data-skill="ratelimiting">API Rate Limiting</span>
                     </div>
                 </div>
 
                 <div class="skill-category">
                     <h3>
                         <span class="skill-icon"><i class="fas fa-database"></i></span>
-                        Database Management
+                        Database &amp; Cache
                     </h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">Mongoose</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">NoSQL Design</span>
-                        <span class="skill-tag">CRUD Ops</span>
+                        <span class="skill-tag" data-skill="mongodb">MongoDB</span>
+                        <span class="skill-tag" data-skill="mongoose">Mongoose</span>
+                        <span class="skill-tag" data-skill="mysql">MySQL</span>
+                        <span class="skill-tag" data-skill="postgresql">PostgreSQL</span>
+                        <span class="skill-tag" data-skill="redis">Redis</span>
+                        <span class="skill-tag" data-skill="schema">Schema Design</span>
+                        <span class="skill-tag" data-skill="queryopt">Query Optimisation</span>
                     </div>
                 </div>
 
                 <div class="skill-category">
                     <h3>
                         <span class="skill-icon"><i class="fas fa-tools"></i></span>
-                        Tools &amp; Platforms
+                        DevOps &amp; Testing
                     </h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">GitHub</span>
-                        <span class="skill-tag">VS Code</span>
-                        <span class="skill-tag">Postman</span>
-                        <span class="skill-tag">Stripe/Razorpay</span>
+                        <span class="skill-tag" data-skill="git">Git</span>
+                        <span class="skill-tag" data-skill="github">GitHub</span>
+                        <span class="skill-tag" data-skill="docker">Docker</span>
+                        <span class="skill-tag" data-skill="docker-compose">Docker Compose</span>
+                        <span class="skill-tag" data-skill="cicd">GitHub Actions (CI/CD)</span>
+                        <span class="skill-tag" data-skill="aws">AWS</span>
+                        <span class="skill-tag" data-skill="vercel">Vercel</span>
+                        <span class="skill-tag" data-skill="render">Render</span>
+                        <span class="skill-tag" data-skill="linux">Linux</span>
+                        <span class="skill-tag" data-skill="jest">Jest</span>
+                        <span class="skill-tag" data-skill="testing">Unit Testing</span>
+                        <span class="skill-tag" data-skill="postman">Postman</span>
                     </div>
                 </div>
 
                 <div class="skill-category">
                     <h3>
                         <span class="skill-icon"><i class="fas fa-lightbulb"></i></span>
-                        Core Competencies
+                        CS Core &amp; Methodologies
                     </h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Data Structures</span>
-                        <span class="skill-tag">Algorithms</span>
-                        <span class="skill-tag">Problem Solving</span>
-                        <span class="skill-tag">Team Collaboration</span>
-                        <span class="skill-tag">Gemini AI</span>
+                        <span class="skill-tag" data-skill="dsa">Data Structures &amp; Algorithms</span>
+                        <span class="skill-tag" data-skill="oop">OOP</span>
+                        <span class="skill-tag" data-skill="dbms">DBMS</span>
+                        <span class="skill-tag" data-skill="os">Operating Systems</span>
+                        <span class="skill-tag" data-skill="networks">Computer Networks</span>
+                        <span class="skill-tag" data-skill="systemdesign">System Design</span>
+                        <span class="skill-tag" data-skill="agile">Agile / Scrum</span>
                     </div>
                 </div>
 
@@ -255,7 +295,7 @@
                     <div class="timeline-body">
                         <div class="timeline-header">
                             <div>
-                                <h3 class="timeline-title">Front-End Development Intern</h3>
+                                <h3 class="timeline-title" id="internship-title">Full-Stack Developer Intern</h3>
                                 <div class="timeline-company">
                                     <i class="fas fa-building" style="margin-right:0.4rem;"></i>
                                     Code Quotient School of Technology — Panipat, Haryana
@@ -263,15 +303,12 @@
                             </div>
                             <div class="timeline-date">June 2025 – August 2025</div>
                         </div>
-                        <p class="timeline-description">
-                            Intensive internship program focused on modern web development technologies,
-                            UI/UX best practices, and industry-standard version control workflows.
+                        <p class="timeline-description" id="internship-desc">
+                            Intensive internship program focused on full-stack web development technologies,
+                            API integration, and containerised deployment workflows.
                         </p>
-                        <ul class="timeline-highlights">
-                            <li>Gained hands-on experience in front-end technologies including HTML5, CSS3, and JavaScript, focusing on creating responsive and user-friendly web interfaces.</li>
-                            <li>Strengthened problem-solving and analytical skills by practicing Data Structures &amp; Algorithms (DSA), improving logical thinking and code efficiency.</li>
-                            <li>Collaborated on real-world projects that enhanced understanding of UI/UX design, performance optimization, and code debugging.</li>
-                            <li>Worked extensively with version control using Git and GitHub for maintaining code, contributing to team collaboration, and project tracking.</li>
+                        <ul class="timeline-highlights" id="internship-highlights">
+                            <!-- Bullet points injected dynamically by script -->
                         </ul>
                     </div>
                 </div>
@@ -299,24 +336,29 @@
                     <div class="project-content">
                         <h3 class="project-title">Resolvex</h3>
                         <div class="project-tech">
-                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">React.js</span>
                             <span class="tech-badge">Node.js</span>
-                            <span class="tech-badge">Express</span>
+                            <span class="tech-badge">Express.js</span>
                             <span class="tech-badge">MongoDB</span>
                             <span class="tech-badge">Socket.io</span>
                             <span class="tech-badge">Gemini AI</span>
+                            <span class="tech-badge">Redis</span>
                         </div>
                         <p class="project-description">
                             A full-stack civic complaint management platform enabling citizens to raise,
                             track, and manage public issues with real-time status updates powered by AI.
                         </p>
-                        <ul class="project-features">
-                            <li>Role-based auth for citizens, departments &amp; admins using JWT</li>
-                            <li>AI-powered complaint classification via Gemini AI API</li>
-                            <li>Real-time notifications using Socket.io</li>
-                            <li>Image/video uploads, SLA tracking &amp; analytics dashboard</li>
-                            <li>Email verification &amp; department performance monitoring</li>
+                        <ul class="project-features" id="project-resolvex-features">
+                            <!-- Bullet points injected dynamically -->
                         </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/AHSAINI0405/Civic-Problem-Resolvex.git" target="_blank" rel="noopener noreferrer" class="btn-project btn-project-code" title="View source code on GitHub">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://civic-problem-resolvex.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-project btn-project-live" title="View live demo">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -329,23 +371,27 @@
                         <h3 class="project-title">Billify — Invoice SaaS</h3>
                         <div class="project-tech">
                             <span class="tech-badge">Next.js</span>
-                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">React.js</span>
+                            <span class="tech-badge">TypeScript</span>
                             <span class="tech-badge">MongoDB</span>
+                            <span class="tech-badge">Redis</span>
                             <span class="tech-badge">NextAuth</span>
-                            <span class="tech-badge">Stripe</span>
-                            <span class="tech-badge">Razorpay</span>
                         </div>
                         <p class="project-description">
                             A multi-tenant SaaS invoicing platform for managing invoices, clients,
                             and payments with a GST-compliant invoice engine and rich analytics.
                         </p>
-                        <ul class="project-features">
-                            <li>Multi-tenant architecture with role-based access control</li>
-                            <li>Secure auth via NextAuth, OAuth &amp; JWT</li>
-                            <li>GST-compliant invoices with PDF export &amp; email delivery</li>
-                            <li>Payment integration: Stripe &amp; Razorpay</li>
-                            <li>Revenue analytics dashboard built with Recharts</li>
+                        <ul class="project-features" id="project-billify-features">
+                            <!-- Bullet points injected dynamically -->
                         </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/AHSAINI0405/invoice-saas-Billify-.git" target="_blank" rel="noopener noreferrer" class="btn-project btn-project-code" title="View source code on GitHub">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <!-- <a href="https://github.com/AHSAINI0405/Billify" target="_blank" rel="noopener noreferrer" class="btn-project btn-project-live" title="View live demo">
+                                <i class="fas fa-external-link-alt"></i> Live Demo -->
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -358,7 +404,7 @@
                         <h3 class="project-title">Job Portal Platform</h3>
                         <div class="project-tech">
                             <span class="tech-badge">Node.js</span>
-                            <span class="tech-badge">Express</span>
+                            <span class="tech-badge">Express.js</span>
                             <span class="tech-badge">MongoDB</span>
                             <span class="tech-badge">EJS</span>
                             <span class="tech-badge">JWT</span>
@@ -368,13 +414,16 @@
                             A full-stack Job Portal connecting job seekers with employers, featuring
                             role-based authentication and complete application workflow management.
                         </p>
-                        <ul class="project-features">
-                            <li>Role-based auth for job seekers &amp; employers</li>
-                            <li>RESTful APIs &amp; MongoDB schemas for job postings &amp; profiles</li>
-                            <li>Secure auth with JWT &amp; bcrypt password hashing</li>
-                            <li>Email verification system</li>
-                            <li>Resume upload &amp; job application tracking</li>
+                        <ul class="project-features" id="project-jobportal-features">
+                            <!-- Bullet points injected dynamically -->
                         </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/AHSAINI0405/Job-Portal.git" target="_blank" rel="noopener noreferrer" class="btn-project btn-project-code" title="View source code on GitHub">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -521,19 +570,9 @@
                 <div class="contact-form">
                     <h3>Send Me a Message <span style="font-size:1.4rem;">✉️</span></h3>
 
-                    <!--
-                        =====================================================
-                        HOW TO ACTIVATE DIRECT EMAIL (FREE, NO BACKEND NEEDED)
-                        =====================================================
-                        1. Go to https://web3forms.com
-                        2. Enter your email: sainikataria2002@gmail.com
-                        3. Click "Create your Access Key" — you'll get a free key instantly.
-                        4. Replace "YOUR_ACCESS_KEY_HERE" below with your key.
-                        5. Done! All form submissions will arrive in your Gmail inbox.
-                        =====================================================
-                    -->
+                    
                     <form id="contactForm" novalidate>
-                        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                        <input type="hidden" name="access_key" value="918b0cbd-9021-42fa-9b8c-321a4c7679d5">
                         <input type="hidden" name="subject" value="New Portfolio Contact from Amit Saini's Portfolio">
                         <input type="hidden" name="from_name" value="Amit Saini Portfolio">
                         <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
@@ -635,7 +674,7 @@
     animateFollower();
 
     // Hover effect on interactive elements
-    const hoverables = document.querySelectorAll('a, button, .skill-tag, .social-link, .stat-card, .project-card, .btn');
+    const hoverables = document.querySelectorAll('a, button, .skill-tag, .social-link, .stat-card, .project-card, .btn, .nav-switcher-btn, .role-toggle-btn');
     hoverables.forEach(el => {
         el.addEventListener('mouseenter', () => document.body.classList.add('hoverable-active'));
         el.addEventListener('mouseleave', () => document.body.classList.remove('hoverable-active'));
@@ -645,12 +684,12 @@
     // 2. Typing Effect in Hero Subtitle
     // ──────────────────────────────────────────────
     const typingEl = document.getElementById('typingText');
-    const titles = [
-        'Full Stack Developer',
-        'MCA Student @ Kurukshetra University',
-        'React & Next.js Enthusiast',
-        'Node.js Backend Developer',
-        'Problem Solver 💡',
+    let titles = [
+        'Full Stack Web Developer',
+        'MERN Stack Developer',
+        'Next.js & TypeScript Expert',
+        'Docker & DevOps Enthusiast',
+        'MCA Student @ Kurukshetra University'
     ];
     let titleIndex = 0;
     let charIndex = 0;
@@ -661,7 +700,8 @@
     const PAUSE_AFTER_DELETE = 400;
 
     function typeWriter() {
-        const currentTitle = titles[titleIndex];
+        if (!titles.length) return;
+        const currentTitle = titles[titleIndex % titles.length];
         if (isDeleting) {
             typingEl.textContent = currentTitle.substring(0, charIndex - 1);
             charIndex--;
@@ -740,7 +780,9 @@
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const hrefVal = this.getAttribute('href');
+            if (hrefVal === '#') return;
+            const target = document.querySelector(hrefVal);
             if (target) {
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
@@ -916,7 +958,8 @@
             const elapsed  = now - startTime;
             const progress = Math.min(elapsed / duration, 1);
             const eased    = 1 - Math.pow(1 - progress, 3);
-            el.textContent = Math.floor(eased * target) + suffix;
+            const val      = eased * target;
+            el.textContent = (target % 1 === 0 ? Math.floor(val) : val.toFixed(1)) + suffix;
             if (progress < 1) requestAnimationFrame(update);
         }
         requestAnimationFrame(update);
@@ -926,7 +969,7 @@
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const statNumbers = document.querySelectorAll('.stat-number');
-                const values = [3, 10, 91];
+                const values = [3, 25, 91.2];
                 const suffixes = ['+', '+', '%'];
                 statNumbers.forEach((el, i) => {
                     animateCountUp(el, values[i], suffixes[i]);
@@ -938,6 +981,262 @@
 
     const statsSection = document.querySelector('.stats');
     if (statsSection) statsObserver.observe(statsSection);
+
+    // ──────────────────────────────────────────────
+    // 9. Profile Switcher Logic
+    // ──────────────────────────────────────────────
+    const roleData = {
+        'fullstack': {
+            title: 'Full Stack Web Developer',
+            desc: 'I build exceptional digital experiences with modern web technologies. Specializing in full-stack development with React, Next.js & Node.js — creating fast, scalable applications that solve real-world problems.',
+            aboutHeading: 'Building the Future,<br>One Full-Stack App at a Time',
+            aboutDesc: `I'm a passionate Full Stack Developer with a strong foundation in both front-end and back-end technologies. I focus on delivering high-quality solutions that combine elegant design with robust functionality.<br><br>Currently pursuing my <strong style="color: var(--cyan);">Master's in Computer Applications (MCA)</strong> at Kurukshetra University, I'm constantly learning and adapting to new technologies. My approach blends analytical problem-solving with creative thinking to build applications that users love and businesses rely on.`,
+            internship: {
+                title: 'Full-Stack Developer Intern',
+                desc: 'Intensive internship program focused on full-stack web development technologies, API integration, and containerised deployment workflows.',
+                bullets: [
+                    'Built 3 responsive, mobile-first web interfaces using React.js, HTML5, and CSS3.',
+                    'Integrated RESTful APIs via Postman; reduced bug resolution time by 30% using Git branching, code reviews, and GitHub Actions CI/CD pipelines.',
+                    'Containerised development environment with Docker and Docker Compose; wrote Jest unit tests, cutting regression bugs.'
+                ]
+            },
+            projects: {
+                'resolvex': [
+                    'Developed a real-time civic complaint management platform used by 3 simulated municipal departments, with Socket.io-powered live status updates and Gemini AI-driven complaint classification.',
+                    'Implemented JWT authentication, role-based authorisation, and API rate limiting to secure endpoints against abuse.',
+                    'Designed a microservices-inspired modular backend with separate services for auth, complaints, and notifications; reduced inter-service latency by 30% using Redis pub/sub.'
+                ],
+                'billify': [
+                    'Architected a multi-tenant SaaS invoicing platform handling 100+ concurrent users, with dashboards for invoice management, client records, and payment tracking; reduced invoice generation time by 60%.',
+                    'Implemented secure authentication using NextAuth, OAuth 2.0, and JWT with refresh-token rotation.',
+                    'Built GST-compliant invoice generation with PDF export (React-PDF) and Redis-backed caching to improve dashboard load times.'
+                ],
+                'jobportal': [
+                    'Built a full-stack Job Portal web application supporting 2 distinct user roles (Employer, Job Seeker) with JWT-based authentication and role-based access control (RBAC), enabling secure, role-specific dashboards.',
+                    'Designed 15+ RESTful API endpoints and MongoDB schemas for job postings, applications, and user management, reducing average query response time through indexing and schema optimisation.',
+                    'Implemented resume upload (Multer), email verification (Nodemailer), and real-time application status tracking; deployed on Render with an automated CI/CD pipeline via GitHub Actions.'
+                ]
+            },
+            skills: ['javascript', 'typescript', 'java', 'python', 'sql', 'html5', 'css3', 'react', 'next', 'redux', 'tailwind', 'bootstrap', 'vite', 'responsive', 'uiux', 'ejs', 'node', 'express', 'rest', 'graphql', 'socketio', 'auth', 'bcrypt', 'microservices', 'ratelimiting', 'mongodb', 'mongoose', 'mysql', 'postgresql', 'redis', 'schema', 'git', 'github', 'docker', 'docker-compose', 'cicd', 'render', 'jest', 'testing', 'postman', 'dsa', 'oop', 'dbms', 'systemdesign']
+        },
+        'frontend': {
+            title: 'Frontend Developer',
+            desc: 'I design and build responsive, accessible, and performant user interfaces. Specializing in React, Next.js, Redux Toolkit, and TypeScript — creating beautiful, interactive web experiences that engage users.',
+            aboutHeading: 'Crafting Beautiful UIs,<br>One Pixel at a Time',
+            aboutDesc: `I'm a Frontend Developer dedicated to building responsive, accessible, and high-performance user interfaces. I specialize in turning design concepts into interactive, production-ready web experiences.<br><br>Currently pursuing my <strong style="color: var(--cyan);">Master's in Computer Applications (MCA)</strong> at Kurukshetra University, I focus on design systems, component-driven layouts, and clean client-side architectures.`,
+            internship: {
+                title: 'Front-End Development Intern',
+                desc: 'Intensive internship program focused on modern frontend web technologies, component-driven design, and responsive layouts.',
+                bullets: [
+                    'Built 3 responsive, mobile-first web interfaces using React.js, HTML5, and CSS3, focusing on reusable components and cross-device consistency.',
+                    'Consumed and integrated RESTful APIs via Postman for dynamic UI data; reduced bug resolution time by 30% using Git branching, code reviews, and GitHub Actions CI/CD pipelines.',
+                    'Wrote Jest unit tests for UI components and containerised the local dev environment with Docker, cutting regression bugs.'
+                ]
+            },
+            projects: {
+                'resolvex': [
+                    'Built the React.js frontend for a real-time civic complaint platform used by 3 simulated municipal departments, with Socket.io-powered live status updates rendered in the UI.',
+                    'Implemented JWT-authenticated, role-based UI views and client-side handling for API rate limiting.',
+                    'Consumed a microservices-inspired backend (auth, complaints, notifications) from the frontend, keeping UI state in sync with Redis pub/sub updates.'
+                ],
+                'billify': [
+                    'Built responsive dashboards in Next.js/React.js for a multi-tenant SaaS invoicing platform handling 100+ concurrent users, covering invoice management, client records, and payment tracking; reduced invoice generation time by 60%.',
+                    'Implemented client-side authentication flows using NextAuth, OAuth 2.0, and JWT with refresh-token rotation.',
+                    'Built GST-compliant invoice generation with client-side PDF export (React-PDF), improving perceived dashboard performance via Redis-backed caching.'
+                ],
+                'jobportal': [
+                    'Built role-specific, responsive dashboards for a full-stack Job Portal supporting 2 distinct user roles (Employer, Job Seeker), with JWT-based authentication and role-based access control (RBAC) driving conditional UI rendering.',
+                    'Connected the UI to 15+ RESTful API endpoints for job postings, applications, and user management, handling loading, error, and empty states for a smooth user experience.',
+                    'Built resume upload, email verification, and real-time application status tracking UI components; deployed the frontend on Render with an automated CI/CD pipeline via GitHub Actions.'
+                ]
+            },
+            skills: ['javascript', 'typescript', 'html5', 'css3', 'react', 'next', 'redux', 'tailwind', 'bootstrap', 'vite', 'responsive', 'uiux', 'figma', 'cross-browser', 'seo', 'ejs', 'rest', 'socketio', 'git', 'github', 'postman', 'jest', 'testing', 'dsa', 'oop', 'systemdesign']
+        },
+        'backend': {
+            title: 'Backend Developer',
+            desc: 'I architect and build scalable, secure backend systems. Specializing in Node.js, Express, MongoDB, database schema design, and microservices — optimizing server performance and data workflows.',
+            aboutHeading: 'Architecting Scalable Systems,<br>One Endpoint at a Time',
+            aboutDesc: `I'm a Backend Developer focused on creating secure, reliable, and high-performance server architectures. I specialize in database design, API optimization, microservices, and containerization.<br><br>Currently pursuing my <strong style="color: var(--cyan);">Master's in Computer Applications (MCA)</strong> at Kurukshetra University, I explore advanced operating systems, networking protocols, and system design concepts.`,
+            internship: {
+                title: 'Software Development Intern (Backend Focus)',
+                desc: 'Intensive internship program focused on backend API development, database optimization, and CI/CD deployment pipelines.',
+                bullets: [
+                    'Built and tested RESTful API endpoints consumed by 3 responsive web interfaces, validating request/response contracts via Postman.',
+                    'Reduced bug resolution time by 30% using Git branching, code reviews, and GitHub Actions CI/CD pipelines for backend deployments.',
+                    'Containerised the development environment with Docker and Docker Compose for consistent local/server parity; wrote Jest unit tests, cutting regression bugs.'
+                ]
+            },
+            projects: {
+                'resolvex': [
+                    'Built the Node.js/Express.js backend for a real-time civic complaint platform used by 3 simulated municipal departments, with Socket.io-powered updates and Gemini AI-driven complaint classification.',
+                    'Implemented JWT authentication, role-based authorisation, and API rate limiting to secure endpoints against abuse.',
+                    'Designed a microservices-inspired backend with separate services for auth, complaints, and notifications; reduced inter-service latency by 30% using Redis pub/sub.'
+                ],
+                'billify': [
+                    'Architected the backend for a multi-tenant SaaS invoicing platform handling 100+ concurrent users, designing data models for invoice management, client records, and payment tracking; reduced invoice generation time by 60%.',
+                    'Implemented secure server-side authentication using NextAuth, OAuth 2.0, and JWT with refresh-token rotation.',
+                    'Built GST-compliant invoice generation logic with PDF export support (React-PDF) and Redis-backed caching to cut dashboard load times.'
+                ],
+                'jobportal': [
+                    'Designed the backend for a Job Portal supporting 2 distinct user roles (Employer, Job Seeker), implementing JWT-based authentication and role-based access control (RBAC) for secure, role-specific data access.',
+                    'Designed and built 15+ RESTful API endpoints and MongoDB schemas for job postings, applications, and user management, reducing average query response time through indexing and schema optimisation.',
+                    'Implemented server-side resume upload handling (Multer), email verification (Nodemailer), and real-time application status tracking; deployed on Render with an automated CI/CD pipeline via GitHub Actions.'
+                ]
+            },
+            skills: ['javascript', 'typescript', 'java', 'python', 'sql', 'node', 'express', 'rest', 'graphql', 'socketio', 'auth', 'bcrypt', 'microservices', 'ratelimiting', 'mongodb', 'mongoose', 'mysql', 'postgresql', 'redis', 'schema', 'queryopt', 'git', 'github', 'docker', 'docker-compose', 'cicd', 'render', 'jest', 'testing', 'postman', 'dsa', 'oop', 'dbms', 'os', 'networks', 'systemdesign']
+        }
+    };
+
+    let activeRole = 'fullstack';
+
+    function setRole(role) {
+        if (!roleData[role]) return;
+        activeRole = role;
+
+        // Sync button active states
+        document.querySelectorAll('.role-toggle-btn, .nav-switcher-btn').forEach(btn => {
+            if (btn.getAttribute('data-role') === role) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        // Elements to update with transition
+        const updatableElements = [
+            { el: document.getElementById('hero-desc'), html: roleData[role].desc },
+            { el: document.getElementById('about-heading'), html: roleData[role].aboutHeading },
+            { el: document.getElementById('about-desc'), html: roleData[role].aboutDesc },
+            { el: document.getElementById('internship-title'), html: roleData[role].internship.title },
+            { el: document.getElementById('internship-desc'), html: roleData[role].internship.desc }
+        ];
+
+        // Fade out
+        updatableElements.forEach(item => {
+            if (item.el) {
+                item.el.style.opacity = 0;
+                item.el.style.transform = 'translateY(10px)';
+                item.el.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+            }
+        });
+
+        const internshipHighlights = document.getElementById('internship-highlights');
+        if (internshipHighlights) {
+            internshipHighlights.style.opacity = 0;
+            internshipHighlights.style.transform = 'translateY(10px)';
+            internshipHighlights.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+        }
+
+        const projectKeys = ['resolvex', 'billify', 'jobportal'];
+        projectKeys.forEach(key => {
+            const el = document.getElementById(`project-${key}-features`);
+            if (el) {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(10px)';
+                el.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+            }
+        });
+
+        setTimeout(() => {
+            // Apply text changes
+            updatableElements.forEach(item => {
+                if (item.el) item.el.innerHTML = item.html;
+            });
+
+            // Update internship bullets
+            if (internshipHighlights) {
+                internshipHighlights.innerHTML = roleData[role].internship.bullets
+                    .map(bullet => `<li>${bullet}</li>`)
+                    .join('');
+            }
+
+            // Update project bullets
+            projectKeys.forEach(key => {
+                const el = document.getElementById(`project-${key}-features`);
+                if (el) {
+                    el.innerHTML = roleData[role].projects[key]
+                        .map(bullet => `<li>${bullet}</li>`)
+                        .join('');
+                }
+            });
+
+            // Fade in
+            requestAnimationFrame(() => {
+                updatableElements.forEach(item => {
+                    if (item.el) {
+                        item.el.style.opacity = 1;
+                        item.el.style.transform = 'translateY(0)';
+                    }
+                });
+                if (internshipHighlights) {
+                    internshipHighlights.style.opacity = 1;
+                    internshipHighlights.style.transform = 'translateY(0)';
+                }
+                projectKeys.forEach(key => {
+                    const el = document.getElementById(`project-${key}-features`);
+                    if (el) {
+                        el.style.opacity = 1;
+                        el.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+        }, 250);
+
+        // Update active typing titles array & reset typing index
+        if (role === 'frontend') {
+            titles = [
+                'Frontend Developer',
+                'React.js & Next.js Expert',
+                'Redux Toolkit Specialist',
+                'UI/UX Design Dev',
+                'MCA Student @ KUK'
+            ];
+        } else if (role === 'backend') {
+            titles = [
+                'Backend Developer',
+                'Node.js & Express Architect',
+                'API & Microservices Engineer',
+                'Database & Caching Expert',
+                'MCA Student @ KUK'
+            ];
+        } else {
+            titles = [
+                'Full Stack Web Developer',
+                'MERN Stack Developer',
+                'Next.js & TypeScript Expert',
+                'Docker & DevOps Enthusiast',
+                'MCA Student @ Kurukshetra University'
+            ];
+        }
+        titleIndex = 0;
+        charIndex = 0;
+        isDeleting = false;
+        typingEl.textContent = '';
+
+        // Highlight/dim skills
+        const activeSkills = roleData[role].skills;
+        document.querySelectorAll('.skill-tag').forEach(tag => {
+            const skillKey = tag.getAttribute('data-skill');
+            if (activeSkills.includes(skillKey)) {
+                tag.classList.add('skill-highlight');
+                tag.classList.remove('skill-dimmed');
+            } else {
+                tag.classList.add('skill-dimmed');
+                tag.classList.remove('skill-highlight');
+            }
+        });
+    }
+
+    // Attach click events
+    document.querySelectorAll('.role-toggle-btn, .nav-switcher-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const role = btn.getAttribute('data-role');
+            setRole(role);
+        });
+    });
+
+    // Initial load: Set Full Stack
+    setRole('fullstack');
 
     </script>
 </body>
